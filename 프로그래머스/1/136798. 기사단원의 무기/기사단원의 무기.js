@@ -1,12 +1,11 @@
 function solution(number, limit, power) {
     var answer = 0;
-    let array = [];
     for(let i = 1; i<=number; i++){
-        array[i-1] = divisor(i);
-        if(array[i-1] > limit){
-            array[i-1] = power;
+        let divisors = divisor(i);
+        if(divisors > limit){
+            divisors = power;
         }
-        answer += array[i-1]
+        answer += divisors
     }
     return answer;
 }
