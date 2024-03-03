@@ -15,26 +15,14 @@ for (let i = 1; i <= n; i++) {
   let [cmd, value] = input[i].split(" ").map(Number);
   if (cmd === 1) {
     queue.push(value);
-    if (maxLine < queue.length) {
-      maxLine = queue.length;
-      minPeople = queue[queue.length - 1];
-    } else if (
-      maxLine === queue.length &&
-      queue[queue.length - 1] < minPeople
-    ) {
-      minPeople = queue[queue.length - 1];
-    }
   } else if (cmd === 2) {
-    if (maxLine < queue.length) {
-      maxLine = queue.length;
-      minPeople = queue[queue.length - 1];
-    } else if (
-      maxLine === queue.length &&
-      queue[queue.length - 1] < minPeople
-    ) {
-      minPeople = queue[queue.length - 1];
-    }
     queue.shift();
+  }
+  if (maxLine < queue.length) {
+    maxLine = queue.length;
+    minPeople = queue[queue.length - 1];
+  } else if (maxLine === queue.length && queue[queue.length - 1] < minPeople) {
+    minPeople = queue[queue.length - 1];
   }
 }
 
